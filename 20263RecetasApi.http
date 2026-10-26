@@ -1,0 +1,156 @@
+@baseUrl = http://localhost:5262
+@categoriaId = 1
+@recetaId = 1
+@usuarioId = sustituir-por-id-de-usuario
+@token = sustituir-por-token-de-admin
+
+### Iniciar sesión como administrador
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "correo": "admin@example.com",
+  "password": "Cambiar_EstaClave123!"
+}
+
+### Listar usuarios (requiere Admin)
+GET {{baseUrl}}/api/usuarios
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Consultar usuario (requiere Admin)
+GET {{baseUrl}}/api/usuarios/{{usuarioId}}
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Actualizar usuario (requiere Admin)
+PUT {{baseUrl}}/api/usuarios/{{usuarioId}}
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Ana María",
+  "apellidos": "Pérez López",
+  "correo": "ana.perez@example.com"
+}
+
+### Crear usuario (requiere Admin)
+POST {{baseUrl}}/api/usuarios
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nombre": "Ana",
+  "apellidos": "Pérez",
+  "correo": "ana.perez@example.com",
+  "password": "Recetas_Seguras123!",
+  "rol": "Recepcion"
+}
+
+### Cambiar rol (requiere Admin)
+PUT {{baseUrl}}/api/usuarios/{{usuarioId}}/rol
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "rol": "Admin"
+}
+
+### Restablecer contraseña (requiere Admin)
+PUT {{baseUrl}}/api/usuarios/{{usuarioId}}/restablecer-password
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "passwordNueva": "Recetas_Seguras456!"
+}
+
+### Desactivar usuario (requiere Admin)
+PATCH {{baseUrl}}/api/usuarios/{{usuarioId}}/estado
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "activo": false
+}
+
+### Reactivar usuario (requiere Admin)
+PATCH {{baseUrl}}/api/usuarios/{{usuarioId}}/estado
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "activo": true
+}
+
+### Eliminación lógica del usuario (requiere Admin)
+DELETE {{baseUrl}}/api/usuarios/{{usuarioId}}
+Authorization: Bearer {{token}}
+
+### Listar categorías
+GET {{baseUrl}}/api/categorias
+Accept: application/json
+
+### Consultar categoría
+GET {{baseUrl}}/api/categorias/{{categoriaId}}
+Accept: application/json
+
+### Crear categoría
+POST {{baseUrl}}/api/categorias
+Content-Type: application/json
+
+{
+  "nombre": "Postres",
+  "descripcion": "Recetas dulces"
+}
+
+### Actualizar categoría
+PUT {{baseUrl}}/api/categorias/{{categoriaId}}
+Content-Type: application/json
+
+{
+  "nombre": "Postres y dulces",
+  "descripcion": "Recetas dulces para compartir"
+}
+
+### Eliminar categoría (conflicto si tiene recetas)
+DELETE {{baseUrl}}/api/categorias/{{categoriaId}}
+
+### Listar recetas
+GET {{baseUrl}}/api/recetas
+Accept: application/json
+
+### Filtrar recetas por categoría
+GET {{baseUrl}}/api/recetas?categoriaId={{categoriaId}}
+Accept: application/json
+
+### Consultar receta
+GET {{baseUrl}}/api/recetas/{{recetaId}}
+Accept: application/json
+
+### Crear receta
+POST {{baseUrl}}/api/recetas
+Content-Type: application/json
+
+{
+  "nombre": "Panqueques",
+  "descripcion": "Panqueques sencillos para el desayuno",
+  "ingredientes": "1 taza de harina; 1 huevo; 1 taza de leche",
+  "preparacion": "Mezclar los ingredientes y cocinar porciones en una sartén caliente.",
+  "categoriaId": {{categoriaId}}
+}
+
+### Actualizar receta
+PUT {{baseUrl}}/api/recetas/{{recetaId}}
+Content-Type: application/json
+
+{
+  "nombre": "Panqueques esponjosos",
+  "descripcion": "Panqueques para el desayuno",
+  "ingredientes": "1 taza de harina; 1 huevo; 1 taza de leche; 1 cucharadita de polvo para hornear",
+  "preparacion": "Mezclar los ingredientes y cocinar porciones en una sartén caliente.",
+  "categoriaId": {{categoriaId}}
+}
+
+### Eliminar receta
+DELETE {{baseUrl}}/api/recetas/{{recetaId}}
