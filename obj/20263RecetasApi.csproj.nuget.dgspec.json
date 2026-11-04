@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ramir\\source\\repos\\20263RecetasApi\\20263RecetasApi\\20263RecetasApi.csproj": {}
+    "C:\\Users\\ramir\\Documents\\GitHub\\SistemaRecetas\\20263RecetasApi.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ramir\\source\\repos\\20263RecetasApi\\20263RecetasApi\\20263RecetasApi.csproj": {
+    "C:\\Users\\ramir\\Documents\\GitHub\\SistemaRecetas\\20263RecetasApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ramir\\source\\repos\\20263RecetasApi\\20263RecetasApi\\20263RecetasApi.csproj",
+        "projectUniqueName": "C:\\Users\\ramir\\Documents\\GitHub\\SistemaRecetas\\20263RecetasApi.csproj",
         "projectName": "20263RecetasApi",
-        "projectPath": "c:\\Users\\ramir\\source\\repos\\20263RecetasApi\\20263RecetasApi\\20263RecetasApi.csproj",
+        "projectPath": "C:\\Users\\ramir\\Documents\\GitHub\\SistemaRecetas\\20263RecetasApi.csproj",
         "packagesPath": "C:\\Users\\ramir\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ramir\\source\\repos\\20263RecetasApi\\20263RecetasApi\\obj\\",
+        "outputPath": "C:\\Users\\ramir\\Documents\\GitHub\\SistemaRecetas\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
